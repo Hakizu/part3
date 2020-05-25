@@ -2,8 +2,10 @@ const express = require('express')
 const app = express()
 const cors = require('cors')
 
+app.use(express.static('build'))
 app.use(express.json())
 app.use(cors())
+
 
 const requestLogger = (request, respone, next ) => {
     console.log('Method' , request.method)
