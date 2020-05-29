@@ -1,5 +1,5 @@
 const mongoose = require('mongoose')
-const url = 'mongodb+srv://helios:selene@cluster0-z0nly.mongodb.net/test?retryWrites=true&w=majority'
+const url = process.env.MONGODB_URI
 
 mongoose.set('useFindAndModify', false)
 console.log('connecting to', url)
@@ -13,8 +13,17 @@ mongoose.connect(url, { useNewUrlParser: true, useUnifiedTopology: true })
   })
 
 const noteSchema = new mongoose.Schema({
-  content: String,
-  date: Date,
+  content: {
+    type: String,
+    minlength: 1,
+    maxlength: 30,
+    required: true,
+    trim: true,
+  },
+  date: {
+    type: Date,
+    required: true
+  },
   important: Boolean,
 })
 
