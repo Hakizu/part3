@@ -5,11 +5,15 @@ mongoose.set('useFindAndModify', false)
 const noteSchema = new mongoose.Schema({
   content: {
     type: String,
-    minlength: 1,
+    minlength: 5,
     required: true,
   },
   Date: Date,
   important: Boolean,
+  user: {
+    type: mongoose.Schema.Types.ObjectId,
+    ref: 'User'
+  }
 })
 
 noteSchema.set('toJSON', {
