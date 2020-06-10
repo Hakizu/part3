@@ -1,8 +1,7 @@
-POST http://localhost:3001/api/notes
+POST http://localhost:3001/api/login
 Content-Type: application/json
 
 {
-  "content": "second note",
-  "important": true,
-  "userId": "5edf75651cb54a367024fee5"
+  "username": "hakizu",
+  "password": "salts"
 }
